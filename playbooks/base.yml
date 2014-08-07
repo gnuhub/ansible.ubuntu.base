@@ -15,7 +15,7 @@
         - ruby2.1-dev
     - name: remove rubygems mirror
       shell: gem sources --remove https://rubygems.org/
-    - name: remove rubygems mirror
+    - name: remove taobao gem mirror
       shell: gem sources --remove http://ruby.taobao.org/
     - name: add taobao mirror
       shell: gem sources -a http://ruby.taobao.org/
