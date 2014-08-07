@@ -41,7 +41,7 @@
     <hudson.tasks.Shell>
       <command>#!/usr/bin/env bash
 cd ~/百度云同步盘/github/ansible.ubuntu.base
-./jenkins</command>
+./ci</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
