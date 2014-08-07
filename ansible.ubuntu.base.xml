@@ -24,7 +24,7 @@
         <hudson.model.StringParameterDefinition>
           <name>commit_message</name>
           <description>jenkins commit message</description>
-          <defaultValue></defaultValue>
+          <defaultValue>jenkins commit</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>

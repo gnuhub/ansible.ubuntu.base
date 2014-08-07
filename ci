@@ -21,12 +21,16 @@ sleep 10
 # just build
 ./build
 
+build_status=$?
+
 # package and import
 vagrant package --optput ansible.ubuntu.base_${BUILD_NUMBER}.box
 vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} ansible.ubuntu.base_${BUILD_NUMBER}.box
 
 # run test
 ./run_test
+
+test_status=$?
 
 # backup jenkins
 jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
@@ -44,3 +48,7 @@ git checkout master
 
 # push master to origin
 git push origin master
+
+if [ $build_status -o $test_status ];then
+	exit 1
+fi
