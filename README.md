@@ -8,6 +8,8 @@ I want to build a base system for myself
 ```
 how
 =======
+
 ```
-vagrant_root_ssh.sh
+./vagrant_root_ssh.sh
+./build
 ```
