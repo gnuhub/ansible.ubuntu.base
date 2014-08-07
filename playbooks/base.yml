@@ -6,7 +6,10 @@
       ping: 
     - name: change apt sources
       shell: sed -i 's/us.archive.ubuntu.com/mirrors.sohu.com/g' /etc/apt/sources.list;apt-get update
-
-  roles:
-    - Ansibles.git
-    - eduardodeoh.ruby
+    - name: Add brightbox ruby repository
+      apt_repository: repo='ppa:brightbox/ruby-ng' update_cache=yes
+    - name: Install ruby
+      apt: name={{ item }} state=latest
+      with_items:
+        - ruby2.1
+        - ruby2.1-dev
