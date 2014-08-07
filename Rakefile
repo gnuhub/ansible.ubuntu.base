@@ -7,8 +7,9 @@ desc "Run tests"
 task :test => [:cucumber]
 
 desc "generate report"
-task :doc do 
-	`ARUBA_REPORT_DIR=doc cucumber features`
+task :doc do
+  `rm -rf doc`
+  `ARUBA_REPORT_DIR=doc cucumber features`
 end
 
 task :default => :test
