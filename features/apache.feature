@@ -14,5 +14,5 @@ Feature: apache
     When I run `apache2ctl -M`
     Then the output should contain:
     """
-    mod_auth_openid
+    authopenid_module
     """
