@@ -2,9 +2,9 @@ why
 =====
 
 ```
-In order to use ansible to config the system
+In order to use ansible to install and config the development environments
 As a developer using ansible
-I want to build a base system for myself
+I want to build some development environments for myself
 ```
 how
 =======
