@@ -3,9 +3,12 @@
   remote_user: root
   pre_tasks:
     - name: test connection
-      ping: 
+      ping:
     - name: change apt sources
       shell: sed -i 's/us.archive.ubuntu.com/mirrors.sohu.com/g' /etc/apt/sources.list;apt-get update
+  roles:
+    - Ansibles.build-essential
+  post_tasks:
     - name: Add brightbox ruby repository
       apt_repository: repo='ppa:brightbox/ruby-ng' update_cache=yes
     - name: Install ruby
