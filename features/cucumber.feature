@@ -30,3 +30,15 @@ Feature: cucumber
       """
       rdiscount (2
       """
+
+    Scenario:  aruba bcat
+
+      In order to fix "cannot load such file -- bcat/ansi"
+      https://github.com/gnuhub/ansible.ubuntu.base/issues/12
+      I want to ensure that  bcat gem has been installed
+
+    When I run `gem list bcat`
+    Then the output should contain:
+    """
+    bcat
+    """
