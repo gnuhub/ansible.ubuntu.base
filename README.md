@@ -10,6 +10,8 @@ how
 =======
 
 ```
-./vagrant_root_ssh.sh
-./build
+export BUILD_NUMBER=9
+export vagrant_destroy=true
+export commit_message="jenkins backup"
+./ci
 ```
