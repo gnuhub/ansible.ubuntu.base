@@ -23,14 +23,14 @@ sleep 10
 
 build_status=$?
 
-# package and import
-vagrant package --output ansible.ubuntu.base_${BUILD_NUMBER}.box
-vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} ansible.ubuntu.base_${BUILD_NUMBER}.box
-
 # run test
 ./run_test
 
 test_status=$?
+
+# package and import
+vagrant package --output ansible.ubuntu.base_${BUILD_NUMBER}.box
+vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} ansible.ubuntu.base_${BUILD_NUMBER}.box
 
 # backup jenkins
 jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
