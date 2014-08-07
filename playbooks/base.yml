@@ -13,3 +13,5 @@
       with_items:
         - ruby2.1
         - ruby2.1-dev
+    - name: install cucumber and aruba
+      shell: gem install cucumber aruba --no-ri --no-rdoc
