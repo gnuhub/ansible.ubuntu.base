@@ -13,5 +13,11 @@
       with_items:
         - ruby2.1
         - ruby2.1-dev
+    - name: remove rubygems mirror
+      shell: gem sources --remove https://rubygems.org/
+    - name: remove rubygems mirror
+      shell: gem sources --remove http://ruby.taobao.org/
+    - name: add taobao mirror
+      shell: gem sources -a http://ruby.taobao.org/
     - name: install cucumber and aruba
       shell: gem install cucumber aruba --no-ri --no-rdoc
