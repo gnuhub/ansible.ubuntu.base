@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-ansible-playbook playbooks/base.yml -i hosts --list-tasks
-ansible-playbook playbooks/base.yml -i hosts -vvvv
+set -x
+exec ansible-playbook playbooks/base.yml -i hosts --list-tasks
+exec ansible-playbook playbooks/base.yml -i hosts -vvvv
