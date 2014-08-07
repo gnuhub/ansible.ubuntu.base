@@ -1,16 +1,41 @@
 #!/usr/bin/env bash
+set -x
+if [ -z ${BUILD_NUMBER} ];then
+	echo "please call this using jenkins"
+	exit 1
+fi
+# call from jenkins
+
+if [ x"${vagrant_destroy}" = x"true" ];then
+	vagrant destroy -f
+fi
+
+# halt and up
+vagrant halt -f
+vagrant up
+
 # just build
 ./build
+
 # export and import
+# todo
+
+# run test
 ./run_test
+
 # backup jenkins
 jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
+
 # backup
 git add .
-git commit -a -m "jenkins backup"
+git commit -a -m "${commit_message}"
+
 # snapshot
 git checkout -b build_${BUILD_NUMBER}
 git push origin HEAD
+
 # back to master
 git checkout master
+
+# push master to origin
 git push origin master
