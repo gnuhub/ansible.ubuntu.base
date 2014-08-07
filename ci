@@ -21,8 +21,9 @@ sleep 10
 # just build
 ./build
 
-# export and import
-# todo
+# package and import
+vagrant package --optput ansible.ubuntu.base_${BUILD_NUMBER}.box
+vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} ansible.ubuntu.base_${BUILD_NUMBER}.box
 
 # run test
 ./run_test
