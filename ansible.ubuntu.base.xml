@@ -26,6 +26,11 @@
           <description>jenkins commit message</description>
           <defaultValue>jenkins commit</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>vagrant_package</name>
+          <description>if true,package and box add the build</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.23"/>
