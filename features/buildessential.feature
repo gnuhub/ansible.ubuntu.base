@@ -4,7 +4,7 @@ Feature: buildessential
   I want to install build essential
 
   Scenario:  make
-    When I run `which make`
+    When I run `make --version`
     Then the output should contain:
     """
     GNU Make
