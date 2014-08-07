@@ -37,6 +37,9 @@ fi
 # backup jenkins
 jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
 
+# generate report
+./report
+
 # backup
 git add .
 git commit -a -m "${commit_message}"
