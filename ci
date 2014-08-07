@@ -28,9 +28,11 @@ build_status=$?
 
 test_status=$?
 
+if [ x"${vagrant_package}" = x"true" ];then
 # package and import
 vagrant package --output ansible.ubuntu.base_${BUILD_NUMBER}.box
 vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} ansible.ubuntu.base_${BUILD_NUMBER}.box
+fi
 
 # backup jenkins
 jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
