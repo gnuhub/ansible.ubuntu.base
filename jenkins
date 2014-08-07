@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# just build
+./build
+# export and import
+./run_test
+# backup jenkins
+jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
+# backup
+git add .
+git commit -a -m "jenkins backup"
+# snapshot
+git checkout -b build_${BUILD_NUMBER}
+git push origin HEAD
+# back to master
+git checkout master
