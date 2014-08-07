@@ -1,6 +1,12 @@
 ---
 - hosts: all
   remote_user: root
-  tasks:
+  pre_tasks:
     - name: test connection
       ping: 
+    - name: change apt sources
+      shell: sed -i 's/us.archive.ubuntu.com/mirrors.sohu.com/g' /etc/apt/sources.list;apt-get update
+
+  roles:
+    - Ansibles.git
+    - eduardodeoh.ruby
