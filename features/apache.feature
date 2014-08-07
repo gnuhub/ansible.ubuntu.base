@@ -11,7 +11,7 @@ Feature: apache
     Server version: Apache/2.2
     """
   Scenario: mod_auth_openid
-    When I run "apache2 -M"
+    When I run `apache2 -M`
     Then the output should contain:
     """
     mod_auth_openid
