@@ -25,3 +25,7 @@
       shell: gem sources -a http://ruby.taobao.org/
     - name: install cucumber and aruba
       shell: gem install cucumber aruba --no-ri --no-rdoc
+    - name: install rdiscount
+      shell: gem install rdiscount --no-ri --no-rdoc
+    - name: install Pygments
+      shell: pip install Pygments
