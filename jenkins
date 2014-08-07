@@ -13,3 +13,4 @@ git checkout -b build_${BUILD_NUMBER}
 git push origin HEAD
 # back to master
 git checkout master
+git push origin master
