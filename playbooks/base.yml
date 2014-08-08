@@ -19,15 +19,15 @@
     - name: create /var/w3next directory
       file: path=/var/w3next owner=root group=root mode=0644 state=directory
     - name: add sites-available openid
-      copy: src=templates/openid dest=/etc/apache2/sites-available/openid owner=root group=root mode=0644
+      copy: src=templates/openid dest=/etc/apache2/sites-available/openid owner=www-data group=www-data mode=0777
     - name: add sites-available w3next
-      copy: src=templates/w3next dest=/etc/apache2/sites-available/w3next owner=root group=root mode=0644
+      copy: src=templates/w3next dest=/etc/apache2/sites-available/w3next owner=www-data group=www-data mode=0777
     - name: add apache2 ports.conf
       copy: src=templates/apache2/ports.conf dest=/etc/apache2/ports.conf owner=root group=root mode=0644
     - name: add openid index
       copy: src=templates/site-openid/index.html dest=/var/openid/openid/index.html owner=www-data group=www-data mode=0644
     - name: add w3next login.html
-      copy: src=templates/site-w3next/login.html dest=/var/w3next/login.html owner=root group=root mode=0644
+      copy: src=templates/site-w3next/login.html dest=/var/w3next/login.html owner=www-data group=www-data mode=0777
     - name: enable site openid
       shell: a2ensite openid
     - name: enable site w3next
