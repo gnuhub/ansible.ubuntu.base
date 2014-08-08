@@ -9,8 +9,8 @@ DocumentRoot /var/w3next/
 <Directory /var/w3next/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride all
-    Order allow,deny
-    allow from all
+    Order deny,allow
+    Allow from all
 </Directory>
 
 # OpenID support:

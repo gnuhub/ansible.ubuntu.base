@@ -9,8 +9,8 @@ DocumentRoot /var/openid/
 <Directory /var/openid/>
     Options Indexes FollowSymLinks MultiViews
     AllowOverride all
-    Order allow,deny
-    allow from all
+    Order deny,allow
+    Allow from all
 </Directory>
 
 # OpenID support:
@@ -23,7 +23,7 @@ DocumentRoot /var/openid/
 </Location>
 
 <Location /openid>
-    Order allow,deny
+    Order deny,allow
     Allow from all
     Satisfy any
 </Location>
