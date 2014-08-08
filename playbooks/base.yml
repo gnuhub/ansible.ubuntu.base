@@ -15,21 +15,21 @@
     - name: enable apache authopenid module
       shell: a2enmod authopenid
     - name: create /var/openid directory
-      file: path=/var/openid/ owner=www-data group=www-data mode=0644 state=directory
+      file: path=/var/openid/ owner=root group=root mode=755 state=directory
     - name: create /var/openid/openid directory
-      file: path=/var/openid/openid owner=www-data group=www-data mode=0644 state=directory
+      file: path=/var/openid/openid owner=root group=root mode=0755 state=directory
     - name: create /var/w3next directory
-      file: path=/var/w3next owner=www-data group=www-data mode=0644 state=directory
+      file: path=/var/w3next owner=root group=root mode=0755 state=directory
     - name: add sites-available openid
-      copy: src=templates/openid dest=/etc/apache2/sites-available/openid owner=www-data group=www-data mode=0777
+      copy: src=templates/openid dest=/etc/apache2/sites-available/openid owner=root group=root mode=0644
     - name: add sites-available w3next
-      copy: src=templates/w3next dest=/etc/apache2/sites-available/w3next owner=www-data group=www-data mode=0777
+      copy: src=templates/w3next dest=/etc/apache2/sites-available/w3next owner=root group=root mode=0644
     - name: add apache2 ports.conf
       copy: src=templates/apache2/ports.conf dest=/etc/apache2/ports.conf owner=root group=root mode=0644
     - name: add openid index.html
       copy: src=templates/site-openid/index.html dest=/var/openid/openid/index.html owner=www-data group=www-data mode=0644
     - name: add w3next login.html
-      copy: src=templates/site-w3next/login.html dest=/var/w3next/login.html owner=www-data group=www-data mode=0777
+      copy: src=templates/site-w3next/login.html dest=/var/w3next/login.html owner=root group=root mode=0755
     - name: enable site openid
       shell: a2ensite openid
     - name: enable site w3next

@@ -43,7 +43,7 @@ Feature: apache
     When I run `stat /var/openid`
     Then the output should contain:
     """
-    www-data
+    root
     """
 
   Scenario: openid login page
@@ -68,7 +68,7 @@ Feature: apache
     When I run `stat /var/w3next`
     Then the output should contain:
     """
-    www-data
+    root
     """
 
   Scenario: w3next login page
