@@ -39,6 +39,7 @@
   roles:
     - Ansibles.build-essential
     - Ansibles.python
+    - Ansibles.oracle-jdk
   post_tasks:
     - name: Add brightbox ruby repository
       apt_repository: repo='ppa:brightbox/ruby-ng' update_cache=yes
