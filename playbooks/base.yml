@@ -18,6 +18,8 @@
       file: path=/var/openid owner=www-data group=www-data mode=0644 state=directory
     - name: add sites-available openid
       template: src=templates/openid dest=/etc/apache2/sites-available/openid owner=root group=root mode=0644
+    - name: add openid index
+      template: src=templates/site-openid/index.html dest=/var/openid/index.html owner=www-data group=www-data mode=0644
     - name: enable site openid
       shell: a2ensite openid
     - name: restart apache2
