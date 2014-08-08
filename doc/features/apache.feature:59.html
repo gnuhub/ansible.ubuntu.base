@@ -1,0 +1,62 @@
+<!doctype html> 
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/> 
+  <title>listen port 82 for w3next</title>
+  <script src="../js/jquery-1.6.1.min.js" type="text/javascript"></script>
+  <script src="../js/filesystem.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../css/pygments-autumn.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="../css/console.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="../css/filesystem.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<h2>listen port 82 for w3next</h2>
+
+<div class="description">
+
+
+</div>
+
+<h3>Files</h3>
+<div class="filesystem">
+  
+</div>
+
+<h3>Output</h3>
+<pre class="console">
+$ cat /etc/apache2/ports.conf
+# If you just change the port or add more ports here, you will likely also
+# have to change the VirtualHost statement in
+# /etc/apache2/sites-enabled/000-default
+# This is also true if you have upgraded from before 2.2.9-3 (i.e. from
+# Debian etch). See /usr/share/doc/apache2.2-common/NEWS.Debian.gz and
+# README.Debian.gz
+
+NameVirtualHost *:80
+Listen 80
+
+NameVirtualHost *:81
+Listen 81
+
+NameVirtualHost *:82
+Listen 82
+
+&lt;IfModule mod_ssl.c&gt;
+    # If you add NameVirtualHost *:443 here, you will also have to change
+    # the VirtualHost statement in /etc/apache2/sites-available/default-ssl
+    # to &lt;VirtualHost *:443&gt;
+    # Server Name Indication for SSL named virtual hosts is currently not
+    # supported by MSIE on Windows XP.
+    Listen 443
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_gnutls.c&gt;
+    Listen 443
+&lt;/IfModule&gt;
+
+
+</pre>
+
+</body>

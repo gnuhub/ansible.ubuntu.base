@@ -1,0 +1,95 @@
+<!doctype html> 
+
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8"/> 
+  <title>openid login page</title>
+  <script src="../js/jquery-1.6.1.min.js" type="text/javascript"></script>
+  <script src="../js/filesystem.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="../css/pygments-autumn.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="../css/console.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="../css/filesystem.css" type="text/css" media="screen, projection" />
+</head>
+<body>
+
+<h2>openid login page</h2>
+
+<div class="description">
+
+
+</div>
+
+<h3>Files</h3>
+<div class="filesystem">
+  
+</div>
+
+<h3>Output</h3>
+<pre class="console">
+$ cat /var/openid/openid/index.html
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01//EN&quot;
+        &quot;http://www.w3.org/TR/html4/strict.dtd&quot;&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Logging you via Ubuntu SSO&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot;&gt;
+        body { font-family: sans-serif; font-size: 10pt; color: black; background-color: white; }
+        h1 { height: 32px; }
+        #errorMessage { border-left: 3px solid red; padding: 5px; margin: 10px 0; }
+        .hidden { display: none; }
+        .displayed { display: block; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;OpenID Login&lt;/h1&gt;
+&lt;div id=&quot;errorMessage&quot; class=&quot;hidden&quot;&gt;&lt;/div&gt;
+&lt;form action=&quot;/&quot; method=&quot;GET&quot;&gt;
+    &lt;input type=&quot;hidden&quot; name=&quot;openid_identifier&quot;
+           value=&quot;login.ubuntu.com&quot;&gt;
+    &lt;input id=&quot;sb&quot; type=&quot;submit&quot;
+           value=&quot;Log in using Ubuntu SSO&quot;&gt;
+&lt;/form&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    function parseQueryString() {
+        var param = {}
+        var loc = location.href;
+
+        var qs_loc = loc.indexOf(&#39;?&#39;);
+        if (qs_loc &gt; -1) {
+            var sep = loc.indexOf(&#39;;&#39;) == -1 ? &#39;&amp;&#39; : &#39;;&#39;;
+            var pairs = loc.substring(qs_loc+1).split(sep);
+            for (var i=0; i &lt; pairs.length; i++) {
+                var kv = pairs[i].split(&#39;=&#39;);
+                param[kv[0]] = kv[1];
+            }
+        }
+
+        return param;
+    }
+
+    function showError(message) {
+        var d = document.getElementById(&#39;errorMessage&#39;);
+        d.innerHTML = &#39;Error: &#39; + message;
+        d.className = &#39;displayed&#39;;
+    }
+
+    var qs = parseQueryString();
+
+    if (qs[&#39;modauthopenid.referrer&#39;]) {
+        document.getElementsByTagName(&#39;form&#39;)[0].action =
+                decodeURIComponent(qs[&#39;modauthopenid.referrer&#39;]);
+    }
+
+    if (qs[&#39;modauthopenid.error&#39;]) {
+        showError(qs[&#39;modauthopenid.error&#39;]);
+    }
+    else {
+        document.getElementById(&#39;sb&#39;).className=&#39;hidden&#39;;
+        document.getElementsByTagName(&#39;form&#39;)[0].submit();
+    }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+</body>
