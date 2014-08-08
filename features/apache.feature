@@ -76,5 +76,5 @@ Feature: apache
     When I run `cat /var/w3next/login.html`
     Then the output should contain:
     """
-    w3-wisit.toronto.ca.ibm.com
+    openid_identifier
     """
