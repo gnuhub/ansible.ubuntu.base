@@ -40,7 +40,7 @@ Feature: apache
   Scenario: openid permission
     TO FIX You don't have permission to access / on this server
 
-    When I run `ls -l /var/openid`
+    When I run `stat /var/openid`
     Then the output should contain:
     """
     root
@@ -55,3 +55,26 @@ Feature: apache
     """
   Scenario: test /var/openid/openid does not exist
     * a directory named "/var/openid/openid/" should exist
+
+  Scenario: listen port 82 for w3next
+    When I run `cat /etc/apache2/ports.conf`
+    Then the output should contain:
+    """
+    Listen 82
+    """
+  Scenario: w3next permission
+  TO FIX You don't have permission to access / on this server
+
+    When I run `stat /var/w3next`
+    Then the output should contain:
+    """
+    root
+    """
+
+  Scenario: w3next login page
+
+    When I run `cat /var/w3next/login.html`
+    Then the output should contain:
+    """
+    w3-wisit.toronto.ca.ibm.com
+    """

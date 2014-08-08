@@ -1,0 +1,32 @@
+<VirtualHost *:82>
+ServerAdmin webmaster@localhost
+
+DocumentRoot /var/w3next/
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+<Directory /var/w3next/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+    Order allow,deny
+    allow from all
+</Directory>
+
+# OpenID support:
+<Location /resources>
+    AuthType OpenID
+    Require valid-user
+    AuthOpenIDLoginPage /login.html
+</Location>
+# /OpenID support
+
+ErrorLog ${APACHE_LOG_DIR}/w3next_error.log
+
+# Possible values include: debug, info, notice, warn, error, crit,
+# alert, emerg.
+LogLevel debug
+
+CustomLog ${APACHE_LOG_DIR}/w3next_access.log combined
+
+</VirtualHost>
