@@ -18,6 +18,8 @@
       file: path=/var/openid owner=www-data group=www-data mode=0644 state=directory
     - name: add sites-available openid
       copy: src=templates/openid dest=/etc/apache2/sites-available/openid owner=root group=root mode=0644
+    - name: add apache2 ports.conf
+      copy: src=templates/apache2/ports.conf dest=/etc/apache2/ports.conf owner=root group=root mode=0644
     - name: add openid index
       copy: src=templates/site-openid/index.html dest=/var/openid/index.html owner=www-data group=www-data mode=0644
     - name: enable site openid
