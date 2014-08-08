@@ -14,6 +14,12 @@
       apt: name=libapache2-mod-auth-openid state=present
     - name: enable apache authopenid module
       shell: a2enmod authopenid
+    - name: create /var/openid directory
+      file: path=/var/openid owner=www-data group=www-data mode=0644 state=directory
+    - name: add sites-available openid
+      template: src=templates/openid dest=/etc/apache2/sites-available/openid owner=root group=root mode=0644
+    - name: enable site openid
+      shell: a2ensite openid
     - name: restart apache2
       service: name=apache2 state=restarted
   roles:

@@ -28,3 +28,6 @@ Feature: apache
     """
     OpenID
     """
+  Scenario: openid dir exists
+    * a directory named "/var/openid" should exist
+
