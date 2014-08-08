@@ -37,4 +37,12 @@ Feature: apache
     """
     Listen 81
     """
+  Scenario: openid permission
+    TO FIX You don't have permission to access / on this server
+
+    When I run `ls -l /var/openid`
+    Then the output should contain:
+    """
+    root
+    """
 
