@@ -24,7 +24,7 @@
         <hudson.model.StringParameterDefinition>
           <name>commit_message</name>
           <description>jenkins commit message</description>
-          <defaultValue>jenkins commit</defaultValue>
+          <defaultValue>jenkins build ${BUILD_NUMBER}  commit:</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>vagrant_package</name>
