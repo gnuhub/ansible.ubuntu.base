@@ -31,3 +31,10 @@ Feature: apache
   Scenario: openid dir exists
     * a directory named "/var/openid" should exist
 
+  Scenario: listen port 81 for openid
+    When I run `cat /etc/apache2/ports.conf`
+    Then the output should contain:
+    """
+    Listen 81
+    """
+
