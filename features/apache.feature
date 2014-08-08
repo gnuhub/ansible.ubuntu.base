@@ -16,3 +16,15 @@ Feature: apache
     """
     authopenid_module
     """
+  Scenario: sites-available openid
+    When I run `cat /etc/apache2/sites-available/openid`
+    Then the output should contain:
+    """
+    OpenID
+    """
+  Scenario: sites-enabled openid
+    When I run `cat /etc/apache2/sites-enabled/openid`
+    Then the output should contain:
+    """
+    OpenID
+    """
