@@ -1,0 +1,40 @@
+<VirtualHost *:81>
+ServerAdmin webmaster@localhost
+
+DocumentRoot /var/openid/
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+<Directory /var/openid/>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride all
+    Order allow,deny
+    allow from all
+</Directory>
+
+# OpenID support:
+<Location />
+    AuthType OpenID
+    Require valid-user
+    AuthOpenIDTrusted ^https://login.ubuntu.com/\+openid
+    AuthOpenIDLoginPage /openid/
+    AuthOpenIDCookiePath /
+</Location>
+
+<Location /openid>
+    Order allow,deny
+    Allow from all
+    Satisfy any
+</Location>
+# /OpenID support
+
+ErrorLog ${APACHE_LOG_DIR}/openid_error.log
+
+# Possible values include: debug, info, notice, warn, error, crit,
+# alert, emerg.
+LogLevel debug
+
+CustomLog ${APACHE_LOG_DIR}/openid_access.log combined
+
+</VirtualHost>
