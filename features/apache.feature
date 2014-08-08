@@ -46,3 +46,11 @@ Feature: apache
     root
     """
 
+  Scenario: openid login page
+
+    When I run `cat /var/openid/openid/index.html`
+    Then the output should contain:
+    """
+    login.ubuntu.com
+    """
+
