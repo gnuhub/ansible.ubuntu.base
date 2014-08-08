@@ -15,7 +15,7 @@
     - name: enable apache authopenid module
       shell: a2enmod authopenid
     - name: create /var/openid directory
-      file: path=/var/openid owner=root group=root mode=0644 state=directory
+      file: path=/var/openid/openid owner=root group=root mode=0644 state=directory
     - name: add sites-available openid
       copy: src=templates/openid dest=/etc/apache2/sites-available/openid owner=root group=root mode=0644
     - name: add apache2 ports.conf
@@ -49,3 +49,6 @@
       shell: gem install rdiscount --no-ri --no-rdoc
     - name: install Pygments
       shell: pip install Pygments
+    - name: install bcat gem
+      shell: gem install bcat --no-ri --no-rdoc
+

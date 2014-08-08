@@ -53,4 +53,5 @@ Feature: apache
     """
     login.ubuntu.com
     """
-
+  Scenario: test /var/openid/openid does not exist
+    * a directory named "/var/openid/openid/" should exist
