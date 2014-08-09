@@ -17,6 +17,8 @@ script:
 - ansible-playbook playbooks/base.yml -i hosts -vvvv
 after_script:
 - echo "done"
+after_failure:
+- tree ~/VirtualBox\ VMs/
 notifications:
   hipchat:
     rooms:
