@@ -4,6 +4,8 @@ python: "2.7"
 before_install:
  - sudo apt-get update -qq
  - sudo apt-get install -qq python-apt python-pycurl
+ - sudo apt-get install -qq virtualbox
+ - VBoxManage --version
 install:
   - pip install ansible
 script:
