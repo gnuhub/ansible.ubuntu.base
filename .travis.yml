@@ -7,13 +7,16 @@ before_install:
 - VBoxManage --version
 install:
 - brew install ansible
-- gem install vagrant
-script:
+- brew cask install vagrant
+before_script:
 - wget https://vagrantcloud.com/hashicorp/precise64/version/2/provider/virtualbox.box
 - vagrant box add u64 virtualbox.box
 - vagrant up
+script:
 - ansible-playbook playbooks/base.yml -i hosts --list-tasks
 - ansible-playbook playbooks/base.yml -i hosts -vvvv
+after_script:
+- echo "done"
 notifications:
   hipchat:
     rooms:
