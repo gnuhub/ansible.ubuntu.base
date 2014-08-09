@@ -1,7 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
-- tasks:
+  tasks:
   - name: create temporary directory
     shell: mktemp -d
     register: tempdir
