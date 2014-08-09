@@ -10,8 +10,8 @@ install:
 - brew cask install vagrant
 - brew install tree
 before_script:
-- wget http://files.vagrantup.com/precise64.box
-- vagrant box add u64 precise64.box
+- wget http://files.vagrantup.com/precise32.box
+- vagrant box add u64 precise32.box
 script:
 - vagrant up
 - ansible-playbook playbooks/base.yml -i hosts --list-tasks
