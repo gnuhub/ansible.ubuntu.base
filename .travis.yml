@@ -5,7 +5,7 @@ before_install:
 - wget http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
 - sudo apt-get update -qq
 - sudo apt-get install -qq python-apt python-pycurl
-- sudo apt-get -y install linux-headers-$(cat /proc/version | awk '{print $3}')
+- sudo apt-get -y install 3.2.0-23-generic
 - sudo apt-get -y install virtualbox-4.2
 - VBoxManage --version
 install:
