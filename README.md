@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gnuhub/ansible.ubuntu.base.svg?branch=master)](https://travis-ci.org/gnuhub/ansible.ubuntu.base)
+
 why
 =====
 
