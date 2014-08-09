@@ -19,7 +19,8 @@ script:
 after_script:
 - echo "done"
 after_failure:
-- tree ~/VirtualBox\ VMs/
+- cd ~/VirtualBox\ VMs/
+- cat $(find . -name VBox.log)
 notifications:
   hipchat:
     rooms:
