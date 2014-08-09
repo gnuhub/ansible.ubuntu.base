@@ -1,15 +1,18 @@
----
 language: python
-python: "2.7"
+python: '2.7'
 before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq python-apt python-pycurl
- - wget http://download.virtualbox.org/virtualbox/4.2.26/virtualbox-4.2_4.2.26-95022~Ubuntu~precise_amd64.deb
- - sudo dpkg -i virtualbox-4.2_4.2.26-95022~Ubuntu~precise_amd64.deb
- - VBoxManage --version
+- sudo apt-get update -qq
+- sudo apt-get install -qq python-apt python-pycurl
+- wget http://download.virtualbox.org/virtualbox/4.2.26/virtualbox-4.2_4.2.26-95022~Ubuntu~precise_amd64.deb
+- sudo dpkg -i virtualbox-4.2_4.2.26-95022~Ubuntu~precise_amd64.deb
+- VBoxManage --version
 install:
-  - pip install ansible
+- pip install ansible
 script:
-  - echo localhost > inventory
-  - ansible-playbook --syntax-check -i inventory playbooks/vagrant.yml
-  - ansible-playbook -i inventory playbooks/vagrant.yml --connection=local --sudo -vvvv
+- echo localhost > inventory
+- ansible-playbook --syntax-check -i inventory playbooks/vagrant.yml
+- ansible-playbook -i inventory playbooks/vagrant.yml --connection=local --sudo -vvvv
+notifications:
+  hipchat:
+    rooms:
+      secure: DDXxlEm+/S+yQS3wGctA2XQ5VlnpQ9r0uHAKeIXajCGQv/oOz5vyYq+pfOOznL0bAqedR5LhVpufyCeeamyQYCfPEvH2/8q7JMZL6ekyrQlOvYUbzWwwoxSwH/gwGKSisa5KYTnoD31UMG4IDfPkKiwRTcaY99cB/WBPwqeq318=
