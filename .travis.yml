@@ -15,6 +15,11 @@ script:
 - echo localhost > inventory
 - ansible-playbook --syntax-check -i inventory playbooks/vagrant.yml
 - ansible-playbook -i inventory playbooks/vagrant.yml --connection=local --sudo -vvvv
+- wget https://vagrantcloud.com/hashicorp/precise64/version/2/provider/virtualbox.box
+- vagrant box add u64 virtualbox.box
+- vagrant up
+- ansible-playbook playbooks/base.yml -i hosts --list-tasks
+- ansible-playbook playbooks/base.yml -i hosts -vvvv
 notifications:
   hipchat:
     rooms:
