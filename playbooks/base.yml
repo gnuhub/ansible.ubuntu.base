@@ -62,4 +62,10 @@
       shell: pip install Pygments
     - name: install bcat gem
       shell: gem install bcat --no-ri --no-rdoc
+    - name: download ant
+      shell: cd /tmp; wget http://www.apache.org/dist/ant/binaries/apache-ant-1.9.4-bin.zip
+    - name: uzip ant zip
+      shell: cd /tmp; unzip apache-ant-1.9.4-bin.zip
+    - name: install ant
+      shell: cd /tmp/apache-ant-1.9.4-bin; cp -rf * /usr/local/
 
