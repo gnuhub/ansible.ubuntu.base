@@ -29,29 +29,30 @@ build_status=$?
 test_status=$?
 
 if [ x"${vagrant_package}" = x"true" ];then
+mkdir boxes
 # package and import
 vagrant package --output boxes/ansible.ubuntu.base_${BUILD_NUMBER}.box
 vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} boxes/ansible.ubuntu.base_${BUILD_NUMBER}.box
 fi
 
 # backup jenkins
-jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
+#jenkins.cli get-job ansible.ubuntu.base > ansible.ubuntu.base.xml
 
 # generate report
-./report
+#./report
 
 # backup
-git add .
-git commit -a -m "${commit_message}"
+#git add .
+#git commit -a -m "${commit_message}"
 
 # snapshot
-git checkout -b build_${BUILD_NUMBER}
+git checkout -b HB_${BUILD_NUMBER}
 git push origin HEAD
 
-# back to master
-git checkout master
+# back to build
+#git checkout master
 
 # push master to origin
-git push origin master
+#git push origin master
 
 exit $test_status
