@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gnuhub/ansible.ubuntu.base.svg?branch=master)](https://travis-ci.org/gnuhub/ansible.ubuntu.base)
+[![Build Status](http://home.gnuhub.com:8080/buildStatus/icon?job=ansible.ubuntu.base.build)](http://home.gnuhub.com:8080/job/ansible.ubuntu.base.build/)
 
 why
 =====
@@ -12,8 +12,8 @@ how
 =======
 
 ```
-export BUILD_NUMBER=9
-export vagrant_destroy=true
-export commit_message="jenkins backup"
+export BUILD_NUMBER=NUMBER
+export vagrant_destroy=true|false
+export vagrant_package=true|false
 ./ci
 ```
