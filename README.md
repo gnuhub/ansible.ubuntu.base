@@ -17,3 +17,12 @@ export vagrant_destroy=true|false
 export vagrant_package=true|false
 ./ci
 ```
+
+dev
+===========
+
+```
+vagrant up
+./build
+./run_test
+```
