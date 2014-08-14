@@ -78,3 +78,13 @@ Feature: apache
     """
     openid_identifier
     """
+  Scenario: install perl_module
+
+    In order to understand how mod_auth_openid works and follow the examples in Writing Apache Modules with Perl and C
+    As a developer using apache
+    I want to install perl_module
+    When I run `apache2ctl -M`
+    Then the output should contain:
+    """
+    perl_module
+    """
