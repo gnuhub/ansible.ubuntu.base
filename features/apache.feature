@@ -88,3 +88,10 @@ Feature: apache
     """
     perl_module
     """
+  Scenario: enable perl_module
+
+    When I run `a2enmod perl`
+    Then the output should contain:
+    """
+    Module perl already enabled
+    """
