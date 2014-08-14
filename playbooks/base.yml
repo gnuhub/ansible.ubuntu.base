@@ -12,6 +12,8 @@
       apt: name=apache2 state=present
     - name: install libapache2-mod-auth-openid
       apt: name=libapache2-mod-auth-openid state=present
+    - name: install libapache2-mod-perl2
+      apt: name=libapache2-mod-perl2 state=present
     - name: enable apache authopenid module
       shell: a2enmod authopenid
     - name: create /var/openid directory
