@@ -1,0 +1,10 @@
+sudo apt-get install software-properties-common
+sudo apt-add-repository ppa:ansible/ansible
+sudo apt-get update
+sudo apt-get install ansible
+sudo ansible-galaxy install Ansibles.build-essential
+sudo ansible-galaxy install Ansibles.git
+sudo ansible-galaxy install Ansibles.oracle-jdk
+sudo ansible-galaxy install Ansibles.python
+sudo ansible-galaxy install eduardodeoh.ruby
+sudo ansible-galaxy install robdyke.ant

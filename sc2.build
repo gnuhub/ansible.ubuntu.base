@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 set -x
+./sc4.install
 ansible-playbook playbooks/base.yml -i sc2.hosts --list-tasks
 ansible-playbook playbooks/base.yml -i sc2.hosts -vvvv
