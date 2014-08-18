@@ -10,19 +10,25 @@ I want to build some development environments for myself
 ```
 how
 =======
-#### ci
+
+#### dev
 ```
+branch dev
+./build
+```
+#### dev ci
+```
+ci job ansible.ubuntu.base.build
 export BUILD_NUMBER=NUMBER
 export vagrant_destroy=true|false
 export vagrant_package=true|false
 ./ci
 ```
 
-#### install sc2
+#### sc2 sc4 auto-deploy
 ```
-./sc2.build
+branch sc2_sc4_deploy
+ci job sc2.build
 ```
-#### dev
-```
-./build
-```
+
+
