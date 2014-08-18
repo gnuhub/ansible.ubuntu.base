@@ -10,7 +10,7 @@ I want to build some development environments for myself
 ```
 how
 =======
-
+#### ci
 ```
 export BUILD_NUMBER=NUMBER
 export vagrant_destroy=true|false
@@ -21,4 +21,8 @@ export vagrant_package=true|false
 #### install sc2
 ```
 ./sc2.build
+```
+#### dev
+```
+./build
 ```
