@@ -17,3 +17,8 @@ export vagrant_destroy=true|false
 export vagrant_package=true|false
 ./ci
 ```
+
+#### install sc2
+```
+./sc2.build
+```
