@@ -36,7 +36,121 @@ function jdk.install()
 	echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/environment
 }
 
+function basic.install()
+{
+	apt-get install -y --force-yes build-essential
+	apt-get install -y m4
+	apt-get install -y flex
+	apt-get install -y bison
+	apt-get install -y gawk
+	apt-get install -y texinfo
+	apt-get install -y autoconf
+	apt-get install -y libtool
+	apt-get install -y pkg-config
+	apt-get install -y openssl 
+	apt-get install -y curl 
+	apt-get install -y libreadline6 
+	apt-get install -y git 
+	apt-get install -y zlib1g 
+	apt-get install -y autoconf 
+	apt-get install -y automake 
+	apt-get install -y libtool 
+	apt-get install -y imagemagick 
+	apt-get install -y make
+	apt-get install -y tree
+	apt-get install -y gdb
+	apt-get install -y dpkg-dev
+}
+
+function ruby.install()
+{
+	apt-get install -y python-software-properties
+	apt-add-repository -y ppa:brightbox/ruby-ng
+	apt-get update
+
+	apt-get install -y ruby2.1 rubygems ruby-switch
+	# mkmf.rb can't find header files for ruby at /usr/lib/ruby/include/ruby.h
+	# https://github.com/brightbox/deb-ruby2.0/issues/1
+	apt-get install -y ruby2.1-dev 
+	ruby-switch --set ruby2.1
+	ruby -v
+	gem sources --remove https://rubygems.org/
+	gem sources -a https://ruby.taobao.org/
+	gem sources -l
+	gem install bundler
+	gem install pry
+	gem install byebug
+	gem install json
+	gem install watir-webdriver
+	gem install rake
+}
+
+function db2.prepare()
+{
+	apt-get install -y vim
+	apt-get install -y unzip
+
+
+	apt-get install -y rpm
+	apt-get install -y libc6 
+	apt-get install -y libgcc1
+	apt-get install -y libncurses5
+	apt-get install -y libstdc++6
+	apt-get install -y libstdc++5
+	apt-get install -y libstdc++6:i386
+	apt-get install -y libstdc++5:i386
+	apt-get install -y adduser
+	apt-get install -y bc
+	apt-get install -y ksh
+	apt-get install -y sudo
+	apt-get install -y libaio1
+	apt-get install -y libx11-dev
+	apt-get install -y libasound2-dev
+	apt-get install -y libpam0g:i386
+	apt-get install -y libnuma1
+}
+
+function lamp.install()
+{
+	apt-get install -y wget
+
+	# php
+	apt-get install -y php5  php-pear php5-dev
+	# install exts
+	apt-get install -y  php5-imap php5-gd  
+	# php5-curl 
+	apt-get install -y curl libcurl3-dev php5-curl
+	# pcre
+	apt-get install -y libpcre3-dev 
+	# phpdoc
+	apt-get install -y php5-xsl
+	pear upgrade pear
+	pear channel-discover pear.phpdoc.org
+	wget http://pear.phpdoc.org/get/phpDocumentor-2.3.1.tgz
+	pear install phpDocumentor-2.3.1.tgz
+	# phpunit need Log
+	pear clear-cache
+	wget http://download.pear.php.net/package/Log-1.12.7.tgz
+	pear install Log-1.12.7.tgz
+    cd /usr/bin 
+    if [ ! -f phpunit ];then
+    wget https://phar.phpunit.de/phpunit-lts.phar
+    chmod +x phpunit-lts.phar
+    mv phpunit-lts.phar phpunit
+    fi
+	#apache-docker
+	apt-get install -y apache2
+	apt-get install -y libapache2-mod-php5
+}
+
 sources.list.change
 mongo.install
 jdk.install
+basic.install
+ruby.install
+db2.prepare
+lamp.install
+
+
+
 
