@@ -32,3 +32,12 @@ ci job sc2.build
 ```
 
 
+model
+=============
+
+```
+jenkins.host
+jenkins.host.install
+jenkins.node
+jenkins.node.install
+```
