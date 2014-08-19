@@ -63,8 +63,8 @@
       shell: pip install Pygments
     - name: install bcat gem
       shell: gem install bcat --no-ri --no-rdoc
-    - name: install php5-dev
-      shell: apt-get install -y php5-cli php5-dev php-pear
+    #- name: install php5-dev
+    #  shell: apt-get install -y php5-cli php5-dev php-pear
     - name: install php mongo
       shell: pecl install mongo
 
