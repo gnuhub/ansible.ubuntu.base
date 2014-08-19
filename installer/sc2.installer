@@ -158,15 +158,24 @@ function site.interview()
 	curl http://localhost:99/mongo_test.php
 }
 
-sources.list.change
-mongo.install
-jdk.install
-basic.install
-ruby.install
-db2.prepare
-lamp.install
-site.interview
 
+function all()
+{
+	sources.list.change
+	mongo.install
+	jdk.install
+	basic.install
+	ruby.install
+	db2.prepare
+	lamp.install
+	site.interview
+}
 
+function focus()
+{
+	site.interview
+}
+
+focus
 
 
