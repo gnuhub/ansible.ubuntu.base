@@ -143,6 +143,21 @@ function lamp.install()
 	apt-get install -y libapache2-mod-php5
 }
 
+function site.interview()
+{
+	mkdir -p /var/interview
+	chown www-data:www-data /var/interview
+	cp -f /opt/installer/sc2/interview /etc/apache2/sites-available/
+	cp -f /opt/installer/sc2/ports.conf /etc/apache2/ports.conf
+	cp -f /opt/installer/sc2/mongo_test.php /var/interview/
+	a2ensite interview
+	a2enmode rewrite
+	service apache2 restart
+	service apache2 restart
+	sleep 2
+	curl http://localhost:99/mongo_test.php
+}
+
 sources.list.change
 mongo.install
 jdk.install
@@ -150,6 +165,7 @@ basic.install
 ruby.install
 db2.prepare
 lamp.install
+site.interview
 
 
 
