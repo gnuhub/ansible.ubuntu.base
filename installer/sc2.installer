@@ -13,6 +13,8 @@ function mongo.install()
 	cat /var/log/mongodb/mongod.log
 	apt-get install -y php5-dev php5-cli php-pear
 	pecl install mongo
+	echo "extension=mongo.so" > mongo.ini
+	cat /etc/php5/conf.d/mongo.ini
 }
 
 function sources.list.change()
