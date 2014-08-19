@@ -40,7 +40,6 @@
     - Ansibles.build-essential
     - Ansibles.python
     - Ansibles.oracle-jdk
-    - robdyke.ant
     - elao.mongodb-server
     - elao.mongodb-php
   post_tasks:

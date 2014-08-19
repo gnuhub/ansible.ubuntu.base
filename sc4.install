@@ -9,4 +9,5 @@ sudo ansible-galaxy install Ansibles.python
 sudo ansible-galaxy install eduardodeoh.ruby
 sudo ansible-galaxy install robdyke.ant
 sudo ansible-galaxy install elao.mongodb-server
+sudo ansible-galaxy install elao.php
 sudo ansible-galaxy install elao.mongodb-php
