@@ -4,14 +4,16 @@ if [ -z ${BUILD_NUMBER} ];then
 	echo "please call this using jenkins"
 	exit 1
 fi
+BUILD_NUMBER2=${BUILD_NUMBER}
+BUILD_NUMBER=dontkillme
 # call from jenkins
 
 if [ x"${vagrant_destroy}" = x"true" ];then
 	vagrant destroy -f
+	vagrant halt -f
 fi
 
-# halt and up
-vagrant halt -f
+# up
 vagrant up
 
 # add public key to authorized_keys
@@ -31,8 +33,8 @@ test_status=$?
 if [ x"${vagrant_package}" = x"true" ];then
 mkdir boxes
 # package and import
-vagrant package --output boxes/ansible.ubuntu.base_${BUILD_NUMBER}.box
-vagrant box add ansible.ubuntu.base_${BUILD_NUMBER} boxes/ansible.ubuntu.base_${BUILD_NUMBER}.box
+vagrant package --output boxes/ansible.ubuntu.base_${BUILD_NUMBER2}.box
+vagrant box add ansible.ubuntu.base_${BUILD_NUMBER2} boxes/ansible.ubuntu.base_${BUILD_NUMBER2}.box
 fi
 
 # backup jenkins
@@ -46,7 +48,7 @@ fi
 #git commit -a -m "${commit_message}"
 
 # snapshot
-git checkout -b HB_${BUILD_NUMBER}
+git checkout -b HB_${BUILD_NUMBER2}
 git push origin HEAD
 
 # back to build
