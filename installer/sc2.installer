@@ -151,7 +151,7 @@ function site.interview()
 	cp -f /opt/installer/sc2/ports.conf /etc/apache2/ports.conf
 	cp -f /opt/installer/sc2/mongo_test.php /var/interview/
 	a2ensite interview
-	a2enmode rewrite
+	a2enmod rewrite
 	service apache2 restart
 	service apache2 restart
 	sleep 2
