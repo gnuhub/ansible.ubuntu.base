@@ -41,6 +41,8 @@
     - Ansibles.python
     - Ansibles.oracle-jdk
     - robdyke.ant
+    - elao.mongodb-server
+    - elao.mongodb-php
   post_tasks:
     - name: Add brightbox ruby repository
       apt_repository: repo='ppa:brightbox/ruby-ng' update_cache=yes
