@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -x
+
+# http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/
+function mongo.install()
+{
+	apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+	echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | tee /etc/apt/sources.list.d/mongodb.list
+	apt-get update
+	apt-get install -y mongodb-org
+	service mongod start
+	cat /var/log/mongodb/mongod.log
+	apt-get install php5-dev php5-cli php-pear
+	pecl install mongo
+}
+
+function sources.list.change()
+{
+	sed -i 's/cn.archive.ubuntu.com/mirrors.sohu.com/g' /etc/apt/sources.list
+	apt-get update
+}
+
+
+sources.list.change
+mongo.install
